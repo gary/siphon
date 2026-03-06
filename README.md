@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Architecture Decisions
+
+We document the project's [architectural decisions](https://en.wikipedia.org/wiki/Architectural_decision) using Architecture Decision Records.
+Review the [authoritative source](https://adr.github.io/) and the [ADR1](./docs/arch/decisions/0001-record-architecture-decisions.md) for background and motivation.
+
+### Setup
+
+We use [adr-tools](https://github.com/npryce/adr-tools) for managing ADRs in the project. Install via [Homebrew](https://brew.sh):
+
+1. `brew bundle --file="./Brewfile"`
