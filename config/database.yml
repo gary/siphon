@@ -18,7 +18,12 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV['DATABASE_NAME'] || "siphon" %>
+  username: <%= ENV['DATABASE_USER'] || "siphon" %>
+  password: <%= ENV['SIPHON_DATABASE_PASSWORD'] || "postgres" %>
+  port: <%= ENV['DATABASE_PORT'] || "5432" %>
+  host: <%= ENV['DATABASE_HOST'] || "127.0.0.1" %>
 
 development:
   <<: *default
