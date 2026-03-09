@@ -1,27 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This service acts as the (CRUD) backend for TaskMan, a lightweight task manager. 
 
-Things you may want to cover:
+It follows the Rails Way of development and setup, and is intended to deploy with 
 
-* Ruby version
+My intent was to first containerize its database dependency, and then integrate both the siphon-app and siphon-db services into a separate, dedicated deployment project which would have them talking to the thunderegg service.
 
-* System dependencies
+Effectively:
 
-* Configuration
+1. User would navigate to the local deployment (0.0.0.0:3000). I would have had it run on a non-privileged port so that I could simplify the deployment by not introducing a web server (initially)
+1. User would perform a Task operation (e.g., list tasks)
+  - GET /tasks
+1. User's request would hit frontend service (thunderegg), which would query the backend service via its 
 
-* Database creation
 
-* Database initialization
+## Development
 
-* How to run the test suite
+### Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Prime your development expectations by reading [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html) if you are new to Ruby on Rails and/or its approach.
+1. [Install Ruby on Rails](https://guides.rubyonrails.org/install_ruby_on_rails.html)
+1. Install the application's dependencies:
+   - Ensure you are in the project root
+   - Run `bundle install` 
 
-* Deployment instructions
+### Running in development
 
-* ...
+    bin/setup
+    bin/rails server
+
+### Testing
+
+
 
 ## Architecture Decisions
 
