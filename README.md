@@ -2,36 +2,24 @@
 
 This service acts as the (CRUD) backend for TaskMan, a lightweight task manager. 
 
-It follows the Rails Way of development and setup, and is intended to deploy with 
+It follows the Rails Way of development and setup.
 
-My intent was to first containerize its database dependency, and then integrate both the siphon-app and siphon-db services into a separate, dedicated deployment project which would have them talking to the thunderegg service.
+## Requirements
 
-Effectively:
+1. Docker
+1. Ruby 4.0 or higher
 
-1. User would navigate to the local deployment (0.0.0.0:3000). I would have had it run on a non-privileged port so that I could simplify the deployment by not introducing a web server (initially)
-1. User would perform a Task operation (e.g., list tasks)
-  - GET /tasks
-1. User's request would hit frontend service (thunderegg), which would query the backend service via its 
+## Running in development
 
+For interop with the web frontend (thunderegg), the development server runs on port 3001.
 
-## Development
+1. Run `docker compose up` to bring up the database
+1. Run `bin/setup`
+1. Run `bin/rails server`
 
-### Setup
+## Testing
 
-1. Prime your development expectations by reading [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html) if you are new to Ruby on Rails and/or its approach.
-1. [Install Ruby on Rails](https://guides.rubyonrails.org/install_ruby_on_rails.html)
-1. Install the application's dependencies:
-   - Ensure you are in the project root
-   - Run `bundle install` 
-
-### Running in development
-
-    bin/setup
-    bin/rails server
-
-### Testing
-
-
+1. Run `bin/rails test`
 
 ## Architecture Decisions
 
